@@ -1,6 +1,5 @@
-import 'package:filmereview/app/modules/home/home_module.dart';
-import 'package:filmereview/app/modules/home/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_modular/src/presenters/modular_base.dart';
 
 class AppWidget extends StatelessWidget {
   const AppWidget({Key? key}) : super(key: key);
@@ -9,15 +8,15 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      initialRoute: '/home',
       title: 'PocPloc Movies',
       theme: ThemeData(
         fontFamily: 'Roboto',
         appBarTheme: AppBarTheme(
-            color: Colors.red,
-            centerTitle: true,
-          ),
+          color: Colors.red,
+          centerTitle: true,
+        ),
       ),
-      home: HomePage(),
-    );
+    ).modular();
   }
 }

@@ -5,27 +5,30 @@ class HomeRepository implements IHomeRepository {
   var listaFilmes = [
     HomeModel(
       titulo: 'Vingadores: Ultimato',
-      url:
+      imagem:
           'https://th.bing.com/th/id/OIP.divZ3NgQjQeqiQNgHA0OLAHaK4?pid=ImgDet&rs=1',
+      sinopse:
+          'As consequências devastadoras dos atos de Thanos, que dizimaram metade das criaturas do universo e destruíram os Vingadores, leva os heróis remanescentes a tomarem uma atitude final na grande conclusão da sequência de vinte dois filmes da Marvel Studios.',
     ),
     HomeModel(
       titulo: 'A Cabana',
-      url:
+      imagem:
           'https://th.bing.com/th/id/OIP.divZ3NgQjQeqiQNgHA0OLAHaK4?pid=ImgDet&rs=1',
+      direcao: 'Daniel Branquinho',
     ),
     HomeModel(
       titulo: 'Star wars: O império Contra Ataca',
-      url:
+      imagem:
           'https://th.bing.com/th/id/OIP.divZ3NgQjQeqiQNgHA0OLAHaK4?pid=ImgDet&rs=1',
     ),
     HomeModel(
       titulo: 'Marley e Eu',
-      url:
+      imagem:
           'https://th.bing.com/th/id/OIP.divZ3NgQjQeqiQNgHA0OLAHaK4?pid=ImgDet&rs=1',
     ),
     HomeModel(
       titulo: 'Uma Noite no Museu 3',
-      url:
+      imagem:
           'https://th.bing.com/th/id/OIP.divZ3NgQjQeqiQNgHA0OLAHaK4?pid=ImgDet&rs=1',
     ),
   ];
