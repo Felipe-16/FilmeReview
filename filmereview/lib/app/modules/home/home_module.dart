@@ -1,7 +1,7 @@
 import 'package:filmereview/app/modules/home/home_controller.dart';
 import 'package:filmereview/app/modules/home/home_page.dart';
 import 'package:filmereview/app/modules/home/model/home_model.dart';
-import 'package:filmereview/app/modules/home/page/filme-especifico/filme_especifico.dart';
+import 'package:filmereview/app/modules/home/page/filme-especifico/filme_especifico_page.dart';
 import 'package:filmereview/app/modules/home/repositories/home_repository.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
