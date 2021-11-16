@@ -18,10 +18,11 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     return Scaffold(
         appBar: AppBarWidget(
           titulo: 'Home',
-          login: GestureDetector(onTap: () {
-                    Modular.to.pushNamed('/home/login');
-                  },
-          child: Text('Sign In')),
+          login: GestureDetector(
+              onTap: () {
+                Modular.to.pushNamed('/home/login');
+              },
+              child: Text('Sign In')),
         ),
         resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(

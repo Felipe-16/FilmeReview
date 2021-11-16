@@ -5,14 +5,12 @@ import 'package:flutter/material.dart';
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   final String titulo;
   final double? toolbarHeight;
-  final Widget? leadingWidget;
   final IconData? icon;
   final Widget? login;
 
   const AppBarWidget({
     Key? key,
     required this.titulo,
-    this.leadingWidget,
     this.icon,
     this.login,
     this.toolbarHeight,
@@ -21,32 +19,20 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Padding(
-        padding: EdgeInsets.only(
-          right: MediaQuery.of(context).size.width * 0.15,
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              child: Icon(icon),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            Container(
-              child: Text(titulo, style: TextStyle(fontSize: 36),),
-            ),
-          ],
-        ),
-      ),
-      leading: leadingWidget,
-      actions: <Widget>[
-        Padding(
-          padding: const EdgeInsets.only(right: 15.0),
-          child: Container(
-            child: login,
+      title: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            child: Icon(icon),
           ),
+          Container(
+            child: Text(titulo, style: TextStyle(fontSize: 36),),
+          ),
+        ],
+      ),
+      actions: <Widget>[
+        Container(
+          child: login,
         )
       ],
       flexibleSpace: Container(
