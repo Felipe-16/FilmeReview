@@ -60,13 +60,16 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 TextButton(
-                  onPressed: (){
+                  onPressed: () {
                     null;
                   },
-                  child: Text('Esqueceu a senha?', style: TextStyle(color: Colors.red[600]),),
+                  child: Text(
+                    'Esqueceu a senha?',
+                    style: TextStyle(color: Colors.red[600]),
+                  ),
                 ),
                 Container(
-                  height: 50,
+                    height: 50,
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: ElevatedButton(
                       onPressed: () {
@@ -76,21 +79,20 @@ class _LoginPageState extends State<LoginPage> {
                       child: Text('Login'),
                     )),
                 Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Text('Não tem conta?'),
-                      TextButton(
-                        child: Text(
-                          'Sign in',
-                          style: TextStyle(fontSize: 20, color: Colors.red[600]),
-                          
-                        ),
-                        onPressed: () {
-                          null;
-                        },
-                      )
-                    ],
+                    child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text('Não tem conta?'),
+                    TextButton(
+                      child: Text(
+                        'Sign up',
+                        style: TextStyle(fontSize: 20, color: Colors.red[600]),
+                      ),
+                      onPressed: () {
+                        Modular.to.pushNamed('/home/login/cadastro');
+                      },
+                    )
+                  ],
                 ))
               ],
             )));
