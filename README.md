@@ -2,7 +2,7 @@
 Site criado para a disciplina  ecm251-2021 - Linguagens de Programação I.
 
 ## Desenvolvedores:
-- Daniel Branquinho Gomes     R.A: 18.02617-6;
+- Daniel Branquinho Gomes                 R.A: 18.02617-6;
 - Felipe Ros Pegini           R.A: 18.00232-3;
 - Gabriel Gomes               R.A: 18.00947-6;
 - Juliana Gomes Haroldo       R.A: 18.00107-6.
