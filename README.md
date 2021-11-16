@@ -12,3 +12,7 @@ Site criado para a disciplina  ecm251-2021 - Linguagens de Programação I.
 - Backend: Dart;
 - API: Ktor;
 - Banco de dados: SQLite;
+
+### Sketch base do projeto (não foi seguido a risca) :
+- https://www.figma.com/file/nmAf46ri1YAdA9AsEZqkAP/T3---Telas
+
