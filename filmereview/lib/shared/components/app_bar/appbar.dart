@@ -3,20 +3,18 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
-  //final Image logo;
-  final String tituloLogo;
+  final String titulo;
   final double? toolbarHeight;
   final Widget? leadingWidget;
   final IconData? icon;
-  final Widget? actionWidget;
+  final Widget? login;
 
   const AppBarWidget({
     Key? key,
-    //required this.logo,
-    required this.tituloLogo,
+    required this.titulo,
     this.leadingWidget,
     this.icon,
-    this.actionWidget,
+    this.login,
     this.toolbarHeight,
   }) : super(key: key);
 
@@ -28,6 +26,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
           right: MediaQuery.of(context).size.width * 0.15,
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               child: Icon(icon),
@@ -36,7 +35,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
               width: 10,
             ),
             Container(
-              child: Text(tituloLogo),
+              child: Text(titulo, style: TextStyle(fontSize: 36),),
             ),
           ],
         ),
@@ -46,7 +45,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
         Padding(
           padding: const EdgeInsets.only(right: 15.0),
           child: Container(
-            child: actionWidget,
+            child: login,
           ),
         )
       ],
@@ -56,9 +55,9 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-            Color(0xFF02268F),
-            Color(0xFF0264FF),
-          ]) ,
+            Colors.red.shade500,
+            Colors.red.shade900,
+          ]),
         ),
       ),
     );

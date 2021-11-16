@@ -18,7 +18,12 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     return Scaffold(
         appBar: AppBarWidget(
           titulo: 'Home',
+          login: GestureDetector(onTap: () {
+                    Modular.to.pushNamed('/home/login');
+                  },
+          child: Text('Sign In')),
         ),
+        resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -37,7 +42,12 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               Observer(builder: (_) {
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: ListView.builder(
+                  child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 4,
+                              crossAxisSpacing: 16,
+                              mainAxisSpacing: 40),
                       physics: NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
                       itemCount: controller.listaFilmes.length,
