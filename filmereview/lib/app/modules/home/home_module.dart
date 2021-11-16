@@ -3,7 +3,7 @@ import 'package:filmereview/app/modules/home/home_page.dart';
 import 'package:filmereview/app/modules/home/model/home_model.dart';
 import 'package:filmereview/app/modules/home/page/filme-especifico/filme_especifico_page.dart';
 import 'package:filmereview/app/modules/home/repositories/home_repository.dart';
-import 'package:filmereview/app/modules/login/login_page.dart';
+import 'package:filmereview/app/modules/login/login_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class HomeModule extends Module {
@@ -19,6 +19,6 @@ class HomeModule extends Module {
         child: (_, args) => FilmeEspecificoPage(
               filme: args.data as HomeModel,
             )),
-    ChildRoute('/login', child:(_, args) => LoginPage()),
+    ModuleRoute('/login', module: LoginModule()),
   ];
 }
