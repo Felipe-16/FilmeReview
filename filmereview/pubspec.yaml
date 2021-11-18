@@ -38,8 +38,6 @@ flutter_icons:
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/images/logo.jpeg
 
 scripts:
   mobx_build: flutter pub run build_runner build

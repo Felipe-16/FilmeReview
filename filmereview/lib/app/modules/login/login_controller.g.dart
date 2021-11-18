@@ -9,22 +9,6 @@ part of 'login_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$LoginController on _LoginController, Store {
-  final _$passwordVisibilityAtom =
-      Atom(name: '_LoginController.passwordVisibility');
-
-  @override
-  bool get passwordVisibility {
-    _$passwordVisibilityAtom.reportRead();
-    return super.passwordVisibility;
-  }
-
-  @override
-  set passwordVisibility(bool value) {
-    _$passwordVisibilityAtom.reportWrite(value, super.passwordVisibility, () {
-      super.passwordVisibility = value;
-    });
-  }
-
   final _$errosAtom = Atom(name: '_LoginController.erros');
 
   @override
@@ -37,21 +21,6 @@ mixin _$LoginController on _LoginController, Store {
   set erros(String value) {
     _$errosAtom.reportWrite(value, super.erros, () {
       super.erros = value;
-    });
-  }
-
-  final _$isCheckedAtom = Atom(name: '_LoginController.isChecked');
-
-  @override
-  bool get isChecked {
-    _$isCheckedAtom.reportRead();
-    return super.isChecked;
-  }
-
-  @override
-  set isChecked(bool value) {
-    _$isCheckedAtom.reportWrite(value, super.isChecked, () {
-      super.isChecked = value;
     });
   }
 
@@ -70,34 +39,23 @@ mixin _$LoginController on _LoginController, Store {
     });
   }
 
-  final _$passwordAtom = Atom(name: '_LoginController.password');
+  final _$senhaAtom = Atom(name: '_LoginController.senha');
 
   @override
-  String get password {
-    _$passwordAtom.reportRead();
-    return super.password;
+  String get senha {
+    _$senhaAtom.reportRead();
+    return super.senha;
   }
 
   @override
-  set password(String value) {
-    _$passwordAtom.reportWrite(value, super.password, () {
-      super.password = value;
+  set senha(String value) {
+    _$senhaAtom.reportWrite(value, super.senha, () {
+      super.senha = value;
     });
   }
 
   final _$_LoginControllerActionController =
       ActionController(name: '_LoginController');
-
-  @override
-  void setIsChecked(bool? value) {
-    final _$actionInfo = _$_LoginControllerActionController.startAction(
-        name: '_LoginController.setIsChecked');
-    try {
-      return super.setIsChecked(value);
-    } finally {
-      _$_LoginControllerActionController.endAction(_$actionInfo);
-    }
-  }
 
   @override
   void setEmail(String value) {
@@ -124,11 +82,9 @@ mixin _$LoginController on _LoginController, Store {
   @override
   String toString() {
     return '''
-passwordVisibility: ${passwordVisibility},
 erros: ${erros},
-isChecked: ${isChecked},
 email: ${email},
-password: ${password}
+senha: ${senha}
     ''';
   }
 }

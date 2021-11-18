@@ -10,24 +10,13 @@ abstract class _LoginController with Store {
   // _LoginController(this.authController);
 
   @observable
-  bool passwordVisibility = true;
-
-  @observable
   String erros = '';
-
-  @observable
-  bool isChecked = false;
 
   @observable
   String email = '';
 
   @observable
-  String password = '';
-
-  @action
-  void setIsChecked(bool? value) {
-    isChecked = value ?? false;
-  }
+  String senha = '';
 
   @action
   void setEmail(String value) {
@@ -36,7 +25,7 @@ abstract class _LoginController with Store {
 
   @action
   void setPassword(String value) {
-    password = value;
+    senha = value;
   }
 
   // @action
@@ -51,8 +40,4 @@ abstract class _LoginController with Store {
   //   }
   // }
 
-  // @action
-  // void changePasswordVisibility() {
-  //   passwordVisibility = !passwordVisibility;
-  // }
 }
