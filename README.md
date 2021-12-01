@@ -9,7 +9,6 @@ Site criado para a disciplina  ecm251-2021 - Linguagens de Programação I.
 
 ### Ferramentas usadas:
 - Frontend : Flutter;
-- Backend: Dart;
 - API: Ktor (Kotlin); 
 - Banco de dados: SQLite;
 
