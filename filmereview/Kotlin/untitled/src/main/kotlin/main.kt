@@ -1,25 +1,17 @@
-import models.Comentario
-import java.sql.DriverManager
+import dao.UserDAO
+
 
 fun main(args: Array<String>) {
-    //Criando conexão com o banco
-    val connection = DriverManager.getConnection("jdbc:sqlite:popploc.db")
+    val usersDAO = UserDAO()
 
-    //Criando caminho para realização de queries
-    val sqlStatement = connection.createStatement()
 
-    //Executando query
-    val resultSet = sqlStatement.executeQuery("SELECT * FROM VW_Comentarios; SELECT * FROM movies;")
+    //usersDAO.setOne(User("Ximbinha","chupajoelma@excalipso.com.br","voltajojo",0))
+    usersDAO.del(3)
 
-    while(resultSet.next()){
-        val comentario = Comentario(
-            resultSet.getString("nome_usuario"),
-            resultSet.getString("comentario"),
-            resultSet.getByte("voto"),
-            resultSet.getInt("id_filme")
-        )
-        println("Dados do comentario: ${comentario}")
+    var user = usersDAO.getAll()
+    for(users in user){
+        println(users)
     }
-    resultSet.close()
-    connection.close()
+
+
 }

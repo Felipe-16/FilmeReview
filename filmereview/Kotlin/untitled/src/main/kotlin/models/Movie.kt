@@ -1,9 +1,9 @@
 package models
 
-class Filme(
+class Movie(
     val nome:String,
     val sinopse:String,
-    val id:Int,
     val ficha_tecnica:String,
-    val ano:String
+    val ano:String,
+    val id:Int
 )
