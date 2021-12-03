@@ -9,20 +9,20 @@ part of 'login_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$LoginController on _LoginController, Store {
-  final _$errosAtom = Atom(name: '_LoginController.erros');
+  Computed<bool>? _$isEmailValidComputed;
 
   @override
-  String get erros {
-    _$errosAtom.reportRead();
-    return super.erros;
-  }
+  bool get isEmailValid =>
+      (_$isEmailValidComputed ??= Computed<bool>(() => super.isEmailValid,
+              name: '_LoginController.isEmailValid'))
+          .value;
+  Computed<bool>? _$isSenhaValidComputed;
 
   @override
-  set erros(String value) {
-    _$errosAtom.reportWrite(value, super.erros, () {
-      super.erros = value;
-    });
-  }
+  bool get isSenhaValid =>
+      (_$isSenhaValidComputed ??= Computed<bool>(() => super.isSenhaValid,
+              name: '_LoginController.isSenhaValid'))
+          .value;
 
   final _$emailAtom = Atom(name: '_LoginController.email');
 
@@ -54,6 +54,43 @@ mixin _$LoginController on _LoginController, Store {
     });
   }
 
+  final _$loadingAtom = Atom(name: '_LoginController.loading');
+
+  @override
+  bool get loading {
+    _$loadingAtom.reportRead();
+    return super.loading;
+  }
+
+  @override
+  set loading(bool value) {
+    _$loadingAtom.reportWrite(value, super.loading, () {
+      super.loading = value;
+    });
+  }
+
+  final _$loggedInAtom = Atom(name: '_LoginController.loggedIn');
+
+  @override
+  bool get loggedIn {
+    _$loggedInAtom.reportRead();
+    return super.loggedIn;
+  }
+
+  @override
+  set loggedIn(bool value) {
+    _$loggedInAtom.reportWrite(value, super.loggedIn, () {
+      super.loggedIn = value;
+    });
+  }
+
+  final _$LoginScreenAsyncAction = AsyncAction('_LoginController.LoginScreen');
+
+  @override
+  Future<void> LoginScreen() {
+    return _$LoginScreenAsyncAction.run(() => super.LoginScreen());
+  }
+
   final _$_LoginControllerActionController =
       ActionController(name: '_LoginController');
 
@@ -69,11 +106,11 @@ mixin _$LoginController on _LoginController, Store {
   }
 
   @override
-  void setPassword(String value) {
+  void setSenha(String value) {
     final _$actionInfo = _$_LoginControllerActionController.startAction(
-        name: '_LoginController.setPassword');
+        name: '_LoginController.setSenha');
     try {
-      return super.setPassword(value);
+      return super.setSenha(value);
     } finally {
       _$_LoginControllerActionController.endAction(_$actionInfo);
     }
@@ -82,9 +119,12 @@ mixin _$LoginController on _LoginController, Store {
   @override
   String toString() {
     return '''
-erros: ${erros},
 email: ${email},
-senha: ${senha}
+senha: ${senha},
+loading: ${loading},
+loggedIn: ${loggedIn},
+isEmailValid: ${isEmailValid},
+isSenhaValid: ${isSenhaValid}
     ''';
   }
 }
