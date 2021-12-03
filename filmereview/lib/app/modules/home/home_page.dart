@@ -18,11 +18,6 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
     return Scaffold(
         appBar: AppBarWidget(
           titulo: 'Home',
-          login: GestureDetector(
-              onTap: () {
-                Modular.to.pushNamed('/home/login');
-              },
-              child: Text('Sign In')),
         ),
         resizeToAvoidBottomInset: false,
         body: SingleChildScrollView(
@@ -57,7 +52,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                           titulo: controller.listaFilmes[index].titulo,
                           imagem: controller.listaFilmes[index].imagem,
                           onTap: () {
-                            Modular.to.pushNamed('/home/filme-especifico',
+                            Modular.to.pushNamed('/login/home/filme-especifico',
                                 arguments: controller.listaFilmes[index]);
                           },
                         );

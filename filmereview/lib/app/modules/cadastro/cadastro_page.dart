@@ -74,7 +74,7 @@ class _CadastroPageState extends State<CadastroPage> {
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: ElevatedButton(
                       onPressed: () {
-                        Modular.to.pushNamed('/home');
+                        Modular.to.pushNamed('/login/home');
                       },
                       style: ElevatedButton.styleFrom(primary: Colors.red[700]),
                       child: Text('Criar nova conta'),

@@ -5,54 +5,39 @@ part 'login_controller.g.dart';
 class LoginController = _LoginController with _$LoginController;
 
 abstract class _LoginController with Store {
-  // final AuthController authController;
-
-  // _LoginController(this.authController);
-
-  @observable
-  bool passwordVisibility = true;
-
-  @observable
-  String erros = '';
-
-  @observable
-  bool isChecked = false;
-
   @observable
   String email = '';
 
   @observable
-  String password = '';
+  String senha = '';
 
   @action
-  void setIsChecked(bool? value) {
-    isChecked = value ?? false;
-  }
+  void setEmail(String value) => email = value;
 
   @action
-  void setEmail(String value) {
-    email = value;
-  }
+  void setSenha(String value) => senha = value;
+
+  @computed
+  bool get isEmailValid => RegExp(
+          r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+      .hasMatch(email);
+
+  @computed
+  bool get isSenhaValid =>
+      RegExp(r'^(?=.*[0-9])(?=\S+$).{8,40}$').hasMatch(senha);
+
+  @observable
+  bool loading = false;
 
   @action
-  void setPassword(String value) {
-    password = value;
+  Future<void> LoginScreen() async {
+    loading = true;
+    await Future.delayed(Duration(seconds: 2));
+
+    loading = false;
+    loggedIn = true;
   }
 
-  // @action
-  // Future<void> login() async {
-  //   try {
-  //     await authController.loginWithEmail(email, password, isChecked);
-  //     if (authController.isLogged) {
-  //       Modular.to.navigate('/home');
-  //     }
-  //   } on Failure catch (e) {
-  //     erros = e.message;
-  //   }
-  // }
-
-  // @action
-  // void changePasswordVisibility() {
-  //   passwordVisibility = !passwordVisibility;
-  // }
+  @observable
+  bool loggedIn = false;
 }

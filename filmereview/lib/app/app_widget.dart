@@ -8,7 +8,7 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
+      initialRoute: '/login',
       title: 'PocPloc Movies',
       theme: ThemeData(
         fontFamily: 'Roboto',

@@ -1,5 +1,7 @@
+import 'package:filmereview/app/modules/login/login_controller.dart';
 import 'package:filmereview/shared/components/app_bar/appbar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class LoginPage extends StatefulWidget {
@@ -9,9 +11,11 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends ModularState<LoginPage, LoginController> {
   @override
   Widget build(BuildContext context) {
+    var emailController = TextEditingController(text: controller.email);
+    var senhaController = TextEditingController(text: controller.senha);
     return Scaffold(
         appBar: AppBarWidget(
           titulo: 'Login',
@@ -38,42 +42,37 @@ class _LoginPageState extends State<LoginPage> {
                       'Sign in',
                       style: TextStyle(fontSize: 20),
                     )),
-                Container(
-                  padding: EdgeInsets.all(10),
-                  child: TextField(
-                    controller: null,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Nome de usuario',
+                Observer(builder: (_) {
+                  return Container(
+                    padding: EdgeInsets.all(10),
+                    child: TextField(
+                      controller: emailController,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Email do usuario',
+                      ),
                     ),
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                  child: TextField(
-                    obscureText: true,
-                    controller: null,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Senha',
+                  );
+                }),
+                Observer(builder: (_) {
+                  return Container(
+                    padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                    child: TextField(
+                      obscureText: true,
+                      controller: senhaController,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Senha',
+                      ),
                     ),
-                  ),
-                ),
-                TextButton(
-                  onPressed: () {
-                    null;
-                  },
-                  child: Text(
-                    'Esqueceu a senha?',
-                    style: TextStyle(color: Colors.red[600]),
-                  ),
-                ),
+                  );
+                }),
                 Container(
                     height: 50,
                     padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
                     child: ElevatedButton(
                       onPressed: () {
-                        Modular.to.pushNamed('/home');
+                        Modular.to.pushNamed('/login/home');
                       },
                       style: ElevatedButton.styleFrom(primary: Colors.red[700]),
                       child: Text('Login'),
@@ -89,7 +88,7 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(fontSize: 20, color: Colors.red[600]),
                       ),
                       onPressed: () {
-                        Modular.to.pushNamed('/home/login/cadastro');
+                        Modular.to.pushNamed('/login/cadastro');
                       },
                     )
                   ],

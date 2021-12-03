@@ -34,7 +34,7 @@ class PainelWidgetCard extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: NetworkImage(imagem!), fit: BoxFit.fill),
+                      image: NetworkImage(imagem!), fit: BoxFit.contain),
                 ),
               ),
             ),
