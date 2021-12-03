@@ -5,20 +5,20 @@ import models.Comment
 
 class CommentDAO:GenericDAO {
 
-    override fun getOne(id: Int): Any {
+    override fun getOne(id: Int): Comment{
         val connection = ConnectionDAO()
         val resultSet = connection.queryExecute("SELECT * FROM comments WHERE id = ${id};")
-        val comment = mutableListOf<Comment>()
+        var comment:Comment = Comment(0,0,"",1,5)
         while (resultSet?.next()!!) {
-            comment.add(
-                Comment(
+
+            comment = Comment(
                     resultSet.getInt("id"),
                     resultSet.getInt("id_usuario"),
                     resultSet.getString("comentario"),
                     resultSet.getByte("voto"),
                     resultSet.getInt("id_filme")
                 )
-            )
+
         }
         connection.close()
         return comment

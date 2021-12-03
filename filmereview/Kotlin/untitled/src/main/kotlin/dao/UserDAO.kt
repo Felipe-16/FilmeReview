@@ -4,21 +4,21 @@ import models.User
 
 class UserDAO:GenericDAO {
 
-    override fun getOne(id: Int): Any {
+    override fun getOne(id: Int): User {
         val connection = ConnectionDAO()
         val resultSet = connection.queryExecute("SELECT * FROM usuario WHERE id = ${id};")
-        val users = mutableListOf<User>()
+        var user:User = User("","","",0)
         while (resultSet?.next()!!) {
-            users.add(
-                User(
+
+            user = User(
                     resultSet.getString("nome"),
                     resultSet.getString("email"),
                     resultSet.getString("senha"),
                     resultSet.getInt("id")
-                ))
+            )
         }
         connection.close()
-        return users
+        return user
     }
 
     override fun getAll(): List<Any> {
