@@ -8,9 +8,21 @@ class HomeModel {
   final double? nota;
 
   HomeModel(
-      {required this.titulo, required this.imagem, this.sinopse, this.direcao, this.roteiro, this.elenco, this.nota});
+      {required this.titulo,
+      required this.imagem,
+      this.sinopse,
+      this.direcao,
+      this.roteiro,
+      this.elenco,
+      this.nota});
 
   factory HomeModel.newInstance() {
-    return HomeModel(titulo: '', imagem: '', sinopse: '', direcao: '', roteiro: '', elenco: '');
+    return HomeModel(
+        titulo: '',
+        imagem: '',
+        sinopse: '',
+        direcao: '',
+        roteiro: '',
+        elenco: '');
   }
 }
