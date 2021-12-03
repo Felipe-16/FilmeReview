@@ -4,7 +4,6 @@ import dao.UserDAO
 fun main(args: Array<String>) {
     val usersDAO = UserDAO()
 
-
     //usersDAO.setOne(User("Ximbinha","chupajoelma@excalipso.com.br","voltajojo",0))
     usersDAO.del(3)
 
@@ -13,5 +12,6 @@ fun main(args: Array<String>) {
         println(users)
     }
 
-
 }
+
+

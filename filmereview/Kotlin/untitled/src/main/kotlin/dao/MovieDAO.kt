@@ -5,19 +5,19 @@ import models.Movie
 
 class MovieDAO:GenericDAO {
 
-    override fun getOne(id: Int): Any {
+    override fun getOne(id: Int): Movie {
         val connection = ConnectionDAO()
         val resultSet = connection.queryExecute("SELECT * FROM movies WHERE id = ${id};")
-        val movie = mutableListOf<Movie>()
+        var movie:Movie = Movie("","","","",0)
         while (resultSet?.next()!!) {
-            movie.add(
-                Movie(
+
+            movie = Movie(
                     resultSet.getString("nome"),
                     resultSet.getString("sinopse"),
                     resultSet.getString("ficha_tecnica"),
                     resultSet.getString("ano"),
                     resultSet.getInt("id")
-                )
+
             )
         }
         connection.close()
