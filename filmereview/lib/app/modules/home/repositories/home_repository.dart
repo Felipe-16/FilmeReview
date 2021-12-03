@@ -168,7 +168,6 @@ class HomeRepository implements IHomeRepository {
       elenco: 'Owen Wilson, Jennifer Aniston, Eric Dane + Cachorro',
       roteiro: 'Don Roos, Scott Frank',
     ),
-    
   ];
   @override
   Future<List<HomeModel>> getFilmes() async {
